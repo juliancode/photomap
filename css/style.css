@@ -1,3 +1,24 @@
+/* Media Queries for screens less than 475px wide */
+
+@media only screen and (max-width: 550px)  {
+  #images {
+    width: 200px !important;
+  }
+
+  #panel input {
+    width: 80% !important;
+    font-size: 1rem !important;
+  }
+
+  #panel input.button {
+    width: 20% !important;
+  }
+
+  #map-canvas {
+    height: 25% !important;
+  }
+}
+
 /* font weights 100 400 700 */
 
 * {
@@ -13,51 +34,68 @@ html, body {
   padding: 0px;
   height: 100%; }
 
+body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 ::-moz-selection {
   color: #fff;
   background-color: #C91818; }
 
 ::selection {
   color: #fff;
-  background-color: #C91818; }
+  background-color: #C91818;
+}
 
 h1, h2, h3, h4, h5 {
-  margin: 0.5rem; }
+  margin: 0.5rem;
+}
 
 h1 {
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+}
 
 h2 {
-  color: #333; }
+  color: #333;
+}
 
 #map-canvas {
   width: 100%;
-  height: 50%; }
+  height: 50%;
+}
 
 #panel {
   text-align: center;
   width: 100%;
   margin: 1rem auto;
-  background-color: #fff; }
-  #panel input {
+  background-color: #fff;
+}
+
+#panel input {
     font-weight: 100;
     color: #333;
     margin: 0;
     padding: 1rem;
     font-size: 2rem;
     outline: none;
-    border: 1px solid #333; }
-  #panel input.button {
+    border: 1px solid #333;
+}
+
+#panel input.button {
     font-weight: 400;
     color: #fff;
     cursor: pointer;
     background-color: #C91818;
-    margin-left: -0.5rem; }
-  #panel input.button:hover {
-    background-color: #E32222; }
+    margin-left: -0.5rem;
+}
+
+#panel input.button:hover {
+    background-color: #E32222;
+}
 
 .container {
-  height: 50%;
+  height: auto;
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -66,6 +104,9 @@ h2 {
 }
 
 #images {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -75,27 +116,15 @@ h2 {
   width: 100%; }
 
 .images {
-  height: 200px;
-  width: auto;
-  margin: 0.5rem; }
+  display: block;
+  height: auto;
+  width: 200px;
+  margin: 0.5rem;
+}
 
 .images:hover {
-  border: 2px solid #C91818; }
-
-span {
-  display: block; }
-
-footer {
-  margin: 2rem 0;
-  width: 100%;
-  text-align: center; }
-  footer a {
-    font-weight: 700;
-    color: #C91818;
-    text-decoration: none; }
-  footer a:hover {
-    color: #C91818;
-    border-bottom: 1px solid #C91818; }
+  border: 2px solid #C91818; 
+}
 
 .error {
   margin: 0.5rem;

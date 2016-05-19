@@ -97,28 +97,17 @@ function codeAddress() {
 
         // New code using higher order function .map method
         function getPics(feed) {
-          feed.data.map(function(image){
+          $("#images").html("")
+          feed.data.map(function(image) {
             output += '<a href="' + image.link + '" target="_blank"><img class="images" src="' + image.images.low_resolution.url + '"></a>';
+            
           });
-
-          // Old code using for loops
-          // for (var i = 0; i < feed.data.length; i++) {
-          //     images.push(feed.data[i].images.low_resolution.url);
-          //     links.push(feed.data[i].link);
-          //     output += '<a href="' + links[i] + '" target="_blank"><img class="images" src="' + images[i] + '"></a>';
-          // }
-
-        // No longer a need to reset arrays since .map function does it for you
-        // images = [];
-        // links = [];
-
 
         loadPics();
         }
 
         function loadPics(){
-          console.log(results[0].geometry.location);
-          $("#images").html(output); 
+          $("#images").append(output);
           $("#near").html('Photos near "' + address + '"');
         }
 
