@@ -39,8 +39,10 @@ function codeAddress() {
 
     // if geocoder passes as ok uses instagram api to search for long and lat
     if (status == google.maps.GeocoderStatus.OK) {
-      $url = "https://api.instagram.com/v1/locations/search?lat=" + results[0].geometry.location.lat() + "&lng=" + results[0].geometry.location.lng() + "&client_id=8e24e687593e46aebc4dce7aaafb4e05";
-      
+
+      var $url = "https://api.instagram.com/v1/locations/search?lat=" + results[0].geometry.location.lat() + "&lng=" + results[0].geometry.location.lng() + "&client_id=8e24e687593e46aebc4dce7aaafb4e05&access_token=44291.8e24e68.d5c76d2b3e844a069a57ef8606b5dbf8";
+
+      console.log ($url);
       // sets center to the address given in search
       map.setCenter(results[0].geometry.location);
 
@@ -68,6 +70,7 @@ function codeAddress() {
 
       // New function using higher order functions
       function buildArray(feed){
+        console.log(feed)
         feed.data.map(function(location){
           locationnames.push(location.name);
           locationid.push(location.id);
@@ -85,12 +88,15 @@ function codeAddress() {
   
       $.when(ajax).done(function(){
         for (var i = 0; i < locationid.length; i++) {
-        $location = "https://api.instagram.com/v1/locations/" + locationid[i] + "/media/recent?client_id=8e24e687593e46aebc4dce7aaafb4e05";
+        console.log(locationid)
+        var $location = "https://api.instagram.com/v1/locations/" + locationid[i] + "/media/recent?client_id=8e24e687593e46aebc4dce7aaafb4e05&access_token=44291.8e24e68.d5c76d2b3e844a069a57ef8606b5dbf8";
+        console.log($location)
         var ajax1 = $.ajax({
           type:'GET',
           url:$location,
           dataType:'jsonp',
           success:function(feed) {
+            console.log(feed)
             getPics(feed);
           }
         })};
